@@ -1,0 +1,15 @@
+{
+    "name": "ivanl/mvc-framework",
+    "autoload": {
+        "psr-4": {
+            "src\\app\\": "src/app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Fuhr",
+            "email": "dev.ivanfuhr@gmail.com"
+        }
+    ],
+    "require": {}
+}
