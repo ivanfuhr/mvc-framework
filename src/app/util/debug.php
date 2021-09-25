@@ -1,4 +1,5 @@
 <?php
+
 function Debug($params = [], $die = true)
 {
     echo '<pre>';

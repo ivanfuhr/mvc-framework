@@ -3,4 +3,4 @@ RewriteBase /
 
 RewriteCond %{THE_REQUEST} public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
-RewriteRule ^((?!src/public/).*)$ projectManager/src/public/$1 [L,NC]
+RewriteRule ^((?!src/public/).*)$ mvc-framework/src/public/$1 [L,NC]

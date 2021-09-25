@@ -2,10 +2,11 @@
 
 namespace src\app\controller;
 
-class TesteController
+use src\app\util\Loader;
+
+class TesteController extends Loader
 {
-    public function __construct()
-    {
-        echo 'Estou aqui';
+    public function teste(){
+        $this->load('home/main', []);
     }
 }
