@@ -1,2 +1,5 @@
 <?php
-$this->get('/', 'TesteController@teste');
+use \src\app\route\Router;
+
+//Get Routers
+Router::get('/', 'TesteController@teste');
