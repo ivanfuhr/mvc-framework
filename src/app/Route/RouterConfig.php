@@ -1,5 +1,5 @@
 <?php
-use \src\app\route\Router;
+use \src\app\route\functions\Router;
 
 //Get Routers
-Router::get('/', 'TesteController@teste');
+Router::get('/[id]', 'TesteController@teste');
