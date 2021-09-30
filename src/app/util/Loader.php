@@ -4,7 +4,7 @@ namespace src\app\util;
 
 class Loader
 {
-    protected function load(string $view, $params = [])
+    public static function load(string $view, $params = [])
     {
         $loader = new \Twig\Loader\FilesystemLoader('../app/View/');
         $twig = new \Twig\Environment($loader);

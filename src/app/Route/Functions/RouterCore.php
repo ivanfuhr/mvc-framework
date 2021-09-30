@@ -9,10 +9,10 @@ class RouterCore
     public static $findedRoute = false;
 
     public function __construct()
-    {   
+    {
         require_once('../app/Route/RouterConfig.php');
-        if(self::$findedRoute === false){
-            (new \src\app\controller\MessageController)->error('Erro 404!', 'Está rota não existe ou está invalida!', 404   );
+        if (self::$findedRoute === false) {
+            (new \src\app\controller\MessageController)->error('Erro 404!', 'Está rota não existe ou está invalida!', 404);
         }
     }
 
@@ -60,12 +60,14 @@ class RouterCore
 
         //FIND ARGS  ===========================================
         foreach ($explodeRoute as $keyRoute => $route) {                         //Criado um laço que percorre todas as posições do array referente a rota
-            if (isset($countURI[$keyRoute])) {                                   //Verifica se a possição da rota existe na URI
-                if ($route === '') {
-                    array_push($convertedURI, $countURI[$keyRoute]);             //Se for ela é adionada a uma varivel chamada $convertedURI
-                }
-                if ($route === $countURI[$keyRoute]) {                           //Verificação com objetivo de analisar se a rota é a mesma que a URI
-                    array_push($convertedURI, $countURI[$keyRoute]);             //Se for ela é adionada a uma varivel chamada $convertedURI
+            if (count($countURI) === count($explodeRoute)) {
+                if (isset($countURI[$keyRoute])) {                                   //Verifica se a possição da rota existe na URI
+                    if ($route === '') {
+                        array_push($convertedURI, $countURI[$keyRoute]);             //Se for ela é adionada a uma varivel chamada $convertedURI
+                    }
+                    if ($route === $countURI[$keyRoute]) {                           //Verificação com objetivo de analisar se a rota é a mesma que a URI
+                        array_push($convertedURI, $countURI[$keyRoute]);             //Se for ela é adionada a uma varivel chamada $convertedURI
+                    }
                 }
             }
             foreach ($regexResult[0] as $keyResult => $result) {                         //Laço que percorre as posições referente a argumentos que ficam dentro de []
@@ -78,7 +80,7 @@ class RouterCore
 
         return [
             'filtredURI' => implode('/', $countURI),
-            'convertedURI' => implode('/', $convertedURI),
+            'convertedURI' => count($convertedURI) === 0 ? implode('/', $countURI) : implode('/', $convertedURI ),
             'convertedRoute' =>  implode('/', $explodeRoute),
             'args' => $args
         ];

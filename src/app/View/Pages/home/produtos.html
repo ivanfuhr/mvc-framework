@@ -1,0 +1,9 @@
+{% extends 'Components/body.html' %}
+{% block title %}Hello, world!{% endblock %}
+
+{% block body %}
+    {% for produto in products %}
+        <h1>{{produto.nome}}</h1>
+        <h2>{{produto.ean}} | {{produto.preco}}</h2>
+    {% endfor %}
+{% endblock %}
